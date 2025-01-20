@@ -1,0 +1,10 @@
+<div class="todos-container">
+    <h2>Todo List</h2>
+    <ul>
+      <li *ngFor="let todo of todos()">
+        <input type="checkbox" appHighlightDoneTodo  >
+        <span [class.done]="todo.isDone">{{ todo.title }}</span>
+      </li>
+    </ul>
+  </div>
+  
