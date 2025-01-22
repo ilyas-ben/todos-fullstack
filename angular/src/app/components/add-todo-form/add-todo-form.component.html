@@ -1,1 +1,16 @@
-<p>add-todo-form works!</p>
+<form [formGroup]="todoForm" (ngSubmit)="addTodo()"><!-- 1- spcifier le formGrp puis la meth() du composant   --> 
+    <div>
+        <label for="title">Title:</label>
+        <input id="title" formControlName="title" required /> <!-- 2 specifier les formcontrol name -->
+    </div>
+
+
+    <div>
+        <label for="isDone">Done:</label>
+        <input id="isDone" type="checkbox" formControlName ="isDone" /> <!-- 2.5 definit le nom de l attribut MAIS inside le FormGRoup -->
+    </div>
+
+    <button type="submit" [disabled]="isLoading || todoForm.invalid">
+        {{ isLoading ? 'Adding...' : 'Add TODO' }} 
+    </button>
+</form>
